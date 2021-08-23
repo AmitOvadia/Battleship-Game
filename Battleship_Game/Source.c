@@ -239,11 +239,11 @@ int play(char board[][BOARD_SIZE], int* counterSubmarinesHits, int* submarinesSi
 			printBoard(board);
 		}
 		// If the coordinate isn't valid than print message accordingly
-		else if ((row != -1) && (col != -1))
+		else if ((row != -1) || (col != -1))
 			printf("Illegal values, please try again.\n");
 
 		// Get coordinate from the user till the user win or want to exit (-1, -1)
-	} while ((row != -1) && (col != -1) && (!(win = isWin(numberOfSubmarines, numberOfSinkedShips))));
+	} while (((row != -1) || (col != -1)) && (!(win = isWin(numberOfSubmarines, numberOfSinkedShips))));
 
 	// If the user win print message accordingly
 	if (win)
